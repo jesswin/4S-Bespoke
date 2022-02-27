@@ -70,11 +70,11 @@ const Form = (props) => {
           data={custSize}
           from="Fetch"
           clearLocal={props.clearLocal}
-          lockForm={lockForm}
-          lockForm2={lockForm2}
         />
       ) : (
-        changeForm2 && <CustomerMeasurement />
+        changeForm2 && (
+          <CustomerMeasurement lockForm={lockForm} lockForm2={lockForm2} />
+        )
       )}
     </Box>
   );
