@@ -4,7 +4,7 @@ import { Button } from "@mui/material";
 import Input from "../Input/Input";
 import { useContext } from "react";
 import OrderContext from "../../../Store/Orders-Context";
-// import storage from './firebase';
+import { storage } from "../../../firebase/firebase";
 
 const CustomerMeasurement = (props) => {
   let orderCtx = useContext(OrderContext);
@@ -13,10 +13,23 @@ const CustomerMeasurement = (props) => {
   const submitData = async (event) => {
     event.preventDefault();
     let data = orderCtx.getCustInfo();
+    let imgUrls = [];
 
     try {
-      // setLoading(true);
       orderCtx.start();
+      for (let i = 0; i < data.custInfo.images.length; i++) {
+        const ref = storage.ref(
+          `/${data.custInfo.Order}/${data.custInfo.images[0].name}${Date()}`
+        );
+        await ref.put(data.custInfo.images[0]).then(async () => {
+          const url = await ref.getDownloadURL();
+          console.log(url);
+          imgUrls.push(url);
+        });
+      }
+
+      data.custInfo.images = [...imgUrls];
+
       let res = await fetch(
         `https://sbespoke-48c4a-default-rtdb.firebaseio.com/orders/${data.custInfo.Order}.json`,
         {
@@ -30,14 +43,12 @@ const CustomerMeasurement = (props) => {
       if (!res.ok) {
         throw new Error("Something went wrong!");
       }
-      // setLoading(false);
       orderCtx.clear();
       props.from === "Fetch" && props.clearLocal();
       orderCtx.stop();
     } catch (err) {
       console.log(err);
       alert(err.message);
-      // setLoading(false);
       orderCtx.stop();
     }
     props.from !== "Fetch" && props.lockForm();

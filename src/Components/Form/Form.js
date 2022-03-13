@@ -22,6 +22,9 @@ const Form = (props) => {
   let prodData = props.data && Object.values(props.data)[0]?.prodInfo;
   let custSize = props.data && Object.values(props.data)[0]?.sizeInfo;
 
+  console.log("FORMMM DATA");
+  console.log(custData);
+
   const unlockForm = (event) => {
     event.preventDefault();
     setchangeForm(true);
