@@ -15,20 +15,18 @@ const CustomerInformation = (props) => {
     props.data?.images && setImages(props.data?.images);
   }, [props.data?.images]);
 
-  function previewFile() {
+  function previewFile(e) {
     let imgUrlArray = [];
-    let rawImagesArray = inputRef.current.files;
-    if (inputRef.current.files) {
-      for (let i = 0; i < inputRef.current.files.length; i++) {
-        imgUrlArray.push(URL.createObjectURL(inputRef.current.files[i]));
+    let rawImagesArray = e.target.files;
+    if (e.target.files) {
+      for (let i = 0; i < e.target.files.length; i++) {
+        imgUrlArray.push(URL.createObjectURL(e.target.files[i]));
       }
+      orderCtx.liftState("images", rawImagesArray, "custInfo");
       setImages(imgUrlArray);
       setRawImages(rawImagesArray);
-      orderCtx.liftState("images", rawImagesArray, "custInfo");
     }
   }
-
-  props.data?.images.map((img) => console.log(img));
 
   return (
     <form onSubmit={props.onNext}>

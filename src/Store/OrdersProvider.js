@@ -21,17 +21,17 @@ const OrderContextProvider = (props) => {
   const transferData = (field, value, dataAbout) => {
     if (dataAbout === "custInfo") {
       custInfo[field] = value;
+      console.log(custInfo);
     }
     if (dataAbout === "prodInfo") {
-      console.log(value);
+      // console.log(value);
       prodInfo[field] = value;
+      console.log(prodInfo);
     }
     if (dataAbout === "sizeInfo") {
       sizeInfo[field] = value;
+      console.log(sizeInfo);
     }
-    console.log(custInfo);
-    console.log(prodInfo);
-    console.log(sizeInfo);
   };
 
   const clearData = () => {
