@@ -6,6 +6,7 @@ import { useContext, useRef, useState } from "react";
 import CircularProgress from "@mui/material/CircularProgress";
 import OrderContext from "../../../Store/Orders-Context";
 import Form from "../Form";
+import { Link } from "react-router-dom";
 
 const FetchData = (props) => {
   const orderCtx = useContext(OrderContext);
@@ -17,10 +18,6 @@ const FetchData = (props) => {
   const clearData = () => {
     setData({});
   };
-
-  // const hideForm = () => {
-  //   setShowForm(false);
-  // };
 
   const getData = async (event) => {
     console.log("GET");
@@ -56,7 +53,7 @@ const FetchData = (props) => {
               <Grid container spacing={1}>
                 <Grid item xs={3}>
                   <TextField
-                    required={props.required}
+                    required
                     type={props.inputType}
                     id="outlined-basic"
                     label="Order"
@@ -67,6 +64,13 @@ const FetchData = (props) => {
                 <Button variant="contained" type="submit" sx={{ m: 2 }}>
                   Fetch
                 </Button>
+                {data && (
+                  <Link to="/finished-data">
+                    <Button variant="contained" sx={{ m: 2 }}>
+                      Finished Data
+                    </Button>
+                  </Link>
+                )}
               </Grid>
             </Box>
           </fieldset>

@@ -3,12 +3,15 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import OrderContextProvider from "./Store/OrdersProvider";
+import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
-    <OrderContextProvider>
-      <App />
-    </OrderContextProvider>
+    <BrowserRouter>
+      <OrderContextProvider>
+        <App />
+      </OrderContextProvider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );

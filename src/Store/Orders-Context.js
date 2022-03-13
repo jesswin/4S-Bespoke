@@ -6,6 +6,7 @@ const OrderContext = React.createContext({
   clear: () => {},
   start: () => {},
   stop: () => {},
+  data: {},
   loading: false,
 });
 export default OrderContext;

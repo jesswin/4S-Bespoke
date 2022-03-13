@@ -6,6 +6,7 @@ const OrderContextProvider = (props) => {
   // eslint-disable-next-line no-unused-vars
   const [fullData, setFullData] = useState({});
   const [formLoading, setFormLoading] = useState(false);
+  const [fetchedData, setFetchedData] = useState();
 
   let custInfo = {};
   let prodInfo = {};
@@ -41,11 +42,11 @@ const OrderContextProvider = (props) => {
     sizeInfo = {};
     fullData2 = {};
     setFullData({});
+    setFetchedData({});
     console.log(fullData2);
   };
 
   const fetchOrder = async (orderId) => {
-    // console.log(orderId);
     try {
       let res = await fetch(
         `https://sbespoke-48c4a-default-rtdb.firebaseio.com/orders/${orderId}.json`
@@ -58,6 +59,7 @@ const OrderContextProvider = (props) => {
       if (!data) {
         throw new Error("No Orders Found!");
       }
+      setFetchedData(data);
       return data;
     } catch (err) {
       console.log(err);
@@ -79,6 +81,7 @@ const OrderContextProvider = (props) => {
     clear: clearData,
     start: startLoading,
     stop: stopLoading,
+    data: fetchedData,
     loading: formLoading,
   };
 

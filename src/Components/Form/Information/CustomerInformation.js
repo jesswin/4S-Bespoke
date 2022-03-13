@@ -23,6 +23,7 @@ const CustomerInformation = (props) => {
       for (let i = 0; i < e.target.files.length; i++) {
         imgUrlArray.push(URL.createObjectURL(e.target.files[i]));
       }
+      console.log(rawImages);
       orderCtx.liftState("images", rawImagesArray, "custInfo");
       setImages(imgUrlArray);
       setRawImages(rawImagesArray);

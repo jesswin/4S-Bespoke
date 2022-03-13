@@ -19,9 +19,9 @@ const CustomerMeasurement = (props) => {
       orderCtx.start();
       for (let i = 0; i < data.custInfo.images.length; i++) {
         const ref = storage.ref(
-          `/${data.custInfo.Order}/${data.custInfo.images[0].name}${Date()}`
+          `/${data.custInfo.Order}/${data.custInfo.images[i].name}${Date()}`
         );
-        await ref.put(data.custInfo.images[0]).then(async () => {
+        await ref.put(data.custInfo.images[i]).then(async () => {
           const url = await ref.getDownloadURL();
           console.log(url);
           imgUrls.push(url);
