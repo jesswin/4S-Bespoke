@@ -1,5 +1,6 @@
 import OrderContext from "./Orders-Context";
 import { useState } from "react";
+import React from "react";
 
 const OrderContextProvider = (props) => {
   // eslint-disable-next-line no-unused-vars
@@ -53,7 +54,6 @@ const OrderContextProvider = (props) => {
         throw new Error("Something went wrong!");
       }
       let data = await res.json();
-      console.log("FUKKK");
       console.log(data);
       if (!data) {
         throw new Error("No Orders Found!");

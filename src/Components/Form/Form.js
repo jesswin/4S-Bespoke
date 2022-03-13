@@ -1,3 +1,4 @@
+import React from "react";
 import Box from "@mui/material/Box";
 import { useContext, useEffect, useState } from "react";
 import OrderContext from "../../Store/Orders-Context";
@@ -13,7 +14,6 @@ const Form = (props) => {
   let orderCtx = useContext(OrderContext);
 
   useEffect(() => {
-    console.log("CV");
     props.from !== "Fetch" && orderCtx.clear();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -21,8 +21,6 @@ const Form = (props) => {
   let custData = props.data && Object.values(props.data)[0]?.custInfo;
   let prodData = props.data && Object.values(props.data)[0]?.prodInfo;
   let custSize = props.data && Object.values(props.data)[0]?.sizeInfo;
-  console.log(props.data);
-  console.log("XXXYYY");
 
   const unlockForm = (event) => {
     event.preventDefault();
@@ -57,6 +55,7 @@ const Form = (props) => {
       autoComplete="off"
     >
       <CustomerInformation
+        from={props.from}
         onNext={props.from === "Fetch" ? preventDef : unlockForm}
         data={custData}
       />

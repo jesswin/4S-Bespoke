@@ -9,7 +9,7 @@ const ProductsBought = (props) => {
   return (
     <form onSubmit={props.onNext}>
       <fieldset>
-        <legend>Products Bought</legend>
+        <legend>Order Information</legend>
         <Grid container spacing={1}>
           {PRODUCTS.map((element) =>
             element.type === "input" ? (

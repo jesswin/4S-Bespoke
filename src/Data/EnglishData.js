@@ -1,5 +1,4 @@
-export const CUSTOMER_DATA = [
-  {
+export const CUSTOMER_DATA = [{
     text: "Order",
     type: "input",
     inputType: "text",
@@ -36,6 +35,18 @@ export const CUSTOMER_DATA = [
     required: true,
   },
   {
+    text: "Height",
+    type: "input",
+    inputType: "number",
+    required: false,
+  },
+  {
+    text: "Weight",
+    type: "input",
+    inputType: "number",
+    required: false,
+  },
+  {
     text: "DoB",
     type: "input",
     inputType: "date",
@@ -43,8 +54,7 @@ export const CUSTOMER_DATA = [
   },
 ];
 
-export const PRODUCTS = [
-  {
+export const PRODUCTS = [{
     text: "Suits",
     type: "dropdown",
   },
@@ -69,23 +79,20 @@ export const PRODUCTS = [
     type: "dropdown",
   },
   {
-    text: "Height",
+    text: "Date of Order",
     type: "input",
-    required: false,
-  },
-  {
-    text: "Weight",
-    type: "input",
-    required: false,
-  },
+    inputType: "date",
+    required: true,
+  }
+  
 ];
 
 export const BODY_MEASUREMENTS = [
-  "Jacket Length F",
-  "Jacket Length B",
-  "Jacket Shoulder",
-  "Jacket Sleeve R",
-  "Jacket Sleeve L",
+  "J Length F",
+  "J Length B",
+  "J Shoulder",
+  "J Sleeve R",
+  "J Sleeve L",
   "Chest",
   "Stomach",
   "Hips",

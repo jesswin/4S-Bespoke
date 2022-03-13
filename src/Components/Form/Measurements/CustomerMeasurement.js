@@ -4,6 +4,7 @@ import { Button } from "@mui/material";
 import Input from "../Input/Input";
 import { useContext } from "react";
 import OrderContext from "../../../Store/Orders-Context";
+// import storage from './firebase';
 
 const CustomerMeasurement = (props) => {
   let orderCtx = useContext(OrderContext);
@@ -46,7 +47,7 @@ const CustomerMeasurement = (props) => {
   return (
     <form onSubmit={submitData}>
       <fieldset>
-        <legend>Customer Measurements</legend>
+        <legend>Body Measurements</legend>
         <Grid container spacing={1}>
           {BODY_MEASUREMENTS.map((element) => (
             <Grid key={element} item xs={3}>
