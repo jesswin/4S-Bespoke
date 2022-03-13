@@ -8,6 +8,7 @@ import OrderContext from "../../../Store/Orders-Context";
 const CustomerInformation = (props) => {
   const inputRef = useRef();
   const [images, setImages] = useState([]);
+  // eslint-disable-next-line no-unused-vars
   const [rawImages, setRawImages] = useState();
   const orderCtx = useContext(OrderContext);
 
