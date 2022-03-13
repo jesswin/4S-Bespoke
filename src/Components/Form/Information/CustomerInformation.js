@@ -58,13 +58,14 @@ const CustomerInformation = (props) => {
           <Grid key="img" item xs={3}>
             <input
               ref={inputRef}
+              required
               onChange={previewFile}
               style={{ margin: "20px" }}
               type="file"
               accept="image/*"
               multiple
             />
-             
+            {props.from === "Fetch" && <p>Select images for new order</p>}
           </Grid>
 
           {images &&

@@ -17,18 +17,20 @@ const CustomerMeasurement = (props) => {
 
     try {
       orderCtx.start();
-      for (let i = 0; i < data.custInfo.images.length; i++) {
-        const ref = storage.ref(
-          `/${data.custInfo.Order}/${data.custInfo.images[i].name}${Date()}`
-        );
-        await ref.put(data.custInfo.images[i]).then(async () => {
-          const url = await ref.getDownloadURL();
-          console.log(url);
-          imgUrls.push(url);
-        });
-      }
+      if (data.custInfo.images) {
+        for (let i = 0; i < data.custInfo.images.length; i++) {
+          const ref = storage.ref(
+            `/${data.custInfo.Order}/${data.custInfo.images[i].name}${Date()}`
+          );
+          await ref.put(data.custInfo.images[i]).then(async () => {
+            const url = await ref.getDownloadURL();
+            console.log(url);
+            imgUrls.push(url);
+          });
+        }
 
-      data.custInfo.images = [...imgUrls];
+        data.custInfo.images = [...imgUrls];
+      }
 
       let res = await fetch(
         `https://sbespoke-48c4a-default-rtdb.firebaseio.com/orders/${data.custInfo.Order}.json`,
