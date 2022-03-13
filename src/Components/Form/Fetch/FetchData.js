@@ -14,6 +14,7 @@ const FetchData = (props) => {
   const [showFrom, setShowForm] = useState(false);
   const [data, setData] = useState();
   const [loading, setLoading] = useState(false);
+  const [showFinshData, setShowFinishData] = useState(false);
 
   const clearData = () => {
     setData({});
@@ -28,6 +29,7 @@ const FetchData = (props) => {
     let fetchedData = await orderCtx.getOrderData(inputRef.current.value);
     if (fetchedData) {
       setData(fetchedData);
+      setShowFinishData(true);
       setShowForm(true);
       setLoading(false);
     } else {
@@ -64,9 +66,9 @@ const FetchData = (props) => {
                 <Button variant="contained" type="submit" sx={{ m: 2 }}>
                   Fetch
                 </Button>
-                {data && (
+                {showFinshData && (
                   <Link to="/finished-data">
-                    <Button variant="contained" sx={{ m: 2 }}>
+                    <Button disabled={!data} variant="contained" sx={{ m: 2 }}>
                       Finished Data
                     </Button>
                   </Link>

@@ -13,6 +13,11 @@ const FinishedData = () => {
   let custSize = data && Object.values(data)[0]?.sizeInfo;
   console.log(prodData);
 
+  const print = () => {
+    alert("Select Layout Landscape for better view.");
+    window.print();
+  };
+
   return (
     <>
       <Box
@@ -73,7 +78,7 @@ const FinishedData = () => {
               );
             })}
         </Grid>
-        <Button variant="contained" type="submit" sx={{ m: 2 }}>
+        <Button onClick={print} variant="contained" type="submit" sx={{ m: 2 }}>
           Print
         </Button>
       </Box>
