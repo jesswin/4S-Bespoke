@@ -8,7 +8,6 @@ import { storage } from "../../../firebase/firebase";
 
 const CustomerMeasurement = (props) => {
   let orderCtx = useContext(OrderContext);
-  // const [loading, setLoading] = useState(false);
 
   const submitData = async (event) => {
     event.preventDefault();
@@ -33,7 +32,7 @@ const CustomerMeasurement = (props) => {
       }
 
       let res = await fetch(
-        `https://sbespoke-48c4a-default-rtdb.firebaseio.com/orders/${data.custInfo.Order}.json`,
+        `https://sbespoke-48c4a-default-rtdb.firebaseio.com/orders/${data.prodInfo.Order}.json`,
         {
           method: "POST",
           headers: {

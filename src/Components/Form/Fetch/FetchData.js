@@ -67,9 +67,9 @@ const FetchData = (props) => {
                   Fetch
                 </Button>
                 {showFinshData && (
-                  <Link to="/finished-data">
+                  <Link to="/tailor-copy">
                     <Button disabled={!data} variant="contained" sx={{ m: 2 }}>
-                      Finished Data
+                      Tailor Copy
                     </Button>
                   </Link>
                 )}

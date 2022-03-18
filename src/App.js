@@ -16,7 +16,7 @@ function App() {
           </div>
         }
       ></Route>
-      <Route path="/finished-data" element={<FinishedData />}></Route>
+      <Route path="/tailor-copy" element={<FinishedData />}></Route>
     </Routes>
   );
 }

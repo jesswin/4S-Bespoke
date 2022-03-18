@@ -26,29 +26,43 @@ const FinishedData = () => {
         }}
       >
         <h2>Customer Information</h2>
+
         <Grid container spacing={1}>
+          <Grid item xs={3} margin="10px">
+            <span style={{ fontSize: "1.3rem" }}>
+              Name - {custData["Name"]}
+            </span>
+          </Grid>
           {Object.keys(custData).map((el) => {
-            return el !== "images" ? (
-              <Grid key={el} item xs={3} margin="10px">
-                <span style={{ fontSize: "1.3rem" }}>
-                  {el} - {custData[el]}
-                </span>
-              </Grid>
-            ) : (
-              custData["images"].map((img) => {
-                return (
-                  <Grid key={img} item xs={3}>
-                    <img
-                      style={{ objectFit: "cover", border: "2px solid black" }}
-                      src={img}
-                      alt={img}
-                      height="100px"
-                      width="100px"
-                    />
-                  </Grid>
-                );
-              })
-            );
+            return el !== "images"
+              ? el !== "Address" &&
+                  el !== "DoB" &&
+                  el !== "E-mail" &&
+                  el !== "Phone 1" &&
+                  el !== "Phone 2" &&
+                  el !== "Name" && (
+                    <Grid key={el} item xs={3} margin="10px">
+                      <span style={{ fontSize: "1.3rem" }}>
+                        {el} - {custData[el]}
+                      </span>
+                    </Grid>
+                  )
+              : custData["images"].map((img) => {
+                  return (
+                    <Grid key={img} item xs={3}>
+                      <img
+                        style={{
+                          objectFit: "cover",
+                          border: "2px solid black",
+                        }}
+                        src={img}
+                        alt={img}
+                        height="100px"
+                        width="100px"
+                      />
+                    </Grid>
+                  );
+                });
           })}
         </Grid>
         <hr />

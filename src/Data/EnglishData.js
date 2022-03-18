@@ -1,9 +1,4 @@
-export const CUSTOMER_DATA = [{
-    text: "Order",
-    type: "input",
-    inputType: "text",
-    required: true,
-  },
+export const CUSTOMER_DATA = [
   {
     text: "Name",
     type: "input",
@@ -54,7 +49,8 @@ export const CUSTOMER_DATA = [{
   },
 ];
 
-export const PRODUCTS = [{
+export const PRODUCTS = [
+  {
     text: "Suits",
     type: "dropdown",
   },
@@ -83,8 +79,13 @@ export const PRODUCTS = [{
     type: "input",
     inputType: "date",
     required: true,
-  }
-  
+  },
+  {
+    text: "Order",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
 ];
 
 export const BODY_MEASUREMENTS = [
