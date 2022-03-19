@@ -6,7 +6,7 @@ const CustomerMeasurement = (props) => {
   return (
     <form>
       <fieldset>
-        <legend>Body Measurements</legend>
+        <legend>{props.txt} Measurements</legend>
         <Grid container spacing={1}>
           {BODY_MEASUREMENTS.map((element) => (
             <Grid key={element} item xs={3}>

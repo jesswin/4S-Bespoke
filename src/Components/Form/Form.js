@@ -72,7 +72,7 @@ const Form = (props) => {
       )}
       {props.from === "Fetch" ? (
         <>
-          <CustomerMeasurement about="sizeInfo" data={custSize} />
+          <CustomerMeasurement txt="Body" about="sizeInfo" data={custSize} />
           <FinishedData
             data={custFinishedSize}
             from="Fetch"
@@ -82,7 +82,7 @@ const Form = (props) => {
       ) : (
         changeForm2 && (
           <>
-            <CustomerMeasurement about="sizeInfo" />
+            <CustomerMeasurement txt="Body" about="sizeInfo" />
             <FinishedData lockForm={lockForm} lockForm2={lockForm2} />
           </>
         )

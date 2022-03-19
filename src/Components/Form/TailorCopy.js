@@ -11,6 +11,7 @@ const TailorCopy = () => {
   let custData = data && Object.values(data)[0]?.custInfo;
   let prodData = data && Object.values(data)[0]?.prodInfo;
   let custSize = data && Object.values(data)[0]?.sizeInfo;
+  let custFinishedSize = data && Object.values(data)[0]?.finishedInfo;
   console.log(prodData);
 
   const print = () => {
@@ -87,6 +88,20 @@ const TailorCopy = () => {
                 <Grid key={el} item xs={3} margin="10px">
                   <span style={{ fontSize: "1.3rem" }}>
                     {el} - {custSize[el]}
+                  </span>
+                </Grid>
+              );
+            })}
+        </Grid>
+        <hr />
+        <h2>Finished Measurements</h2>
+        <Grid container spacing={1}>
+          {custFinishedSize &&
+            Object.keys(custFinishedSize).map((el) => {
+              return (
+                <Grid key={el} item xs={3} margin="10px">
+                  <span style={{ fontSize: "1.3rem" }}>
+                    {el} - {custFinishedSize[el]}
                   </span>
                 </Grid>
               );

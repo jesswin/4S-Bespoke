@@ -55,7 +55,11 @@ const FinishedData = (props) => {
 
   return (
     <>
-      <CustomerMeasurement about="finishedInfo" data={props.data} />
+      <CustomerMeasurement
+        txt="Finished"
+        about="finishedInfo"
+        data={props.data}
+      />
       <Button variant="contained" type="submit" onClick={submit} sx={{ m: 2 }}>
         Submit
       </Button>
