@@ -4,7 +4,7 @@ import Grid from "@mui/material/Grid";
 import { Box } from "@mui/material";
 import { Button } from "@mui/material";
 
-const FinishedData = () => {
+const TailorCopy = () => {
   const orderCtx = useContext(OrderContext);
   let data = Object.values(orderCtx.data);
 
@@ -100,4 +100,4 @@ const FinishedData = () => {
   );
 };
 
-export default FinishedData;
+export default TailorCopy;

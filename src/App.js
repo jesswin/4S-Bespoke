@@ -2,7 +2,7 @@ import "./App.css";
 import OrderTabs from "./Components/Tab/Tab";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import FinishedData from "./Components/Form/FinishedData";
+import TailorCopy from "./Components/Form/TailorCopy";
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
           </div>
         }
       ></Route>
-      <Route path="/tailor-copy" element={<FinishedData />}></Route>
+      <Route path="/tailor-copy" element={<TailorCopy />}></Route>
     </Routes>
   );
 }

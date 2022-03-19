@@ -8,9 +8,10 @@ const Input = (props) => {
   const [val, setVal] = useState("");
 
   useEffect(() => {
+    console.log(props.dataAbout);
     if (props.value) {
       orderCtx.liftState(
-        props.dataAbout === "sizeInfo"
+        props.dataAbout === "sizeInfo" || props.dataAbout === "finishedInfo"
           ? props.data
           : props.data.text
           ? props.data.text
@@ -30,13 +31,13 @@ const Input = (props) => {
   ]);
 
   // console.log(props.value);
-  
+
   const handleOnChange = (event) => {
     setVal(event.target.value);
     console.log(val);
 
     orderCtx.liftState(
-      props.dataAbout === "sizeInfo"
+      props.dataAbout === "sizeInfo" || props.dataAbout === "finishedInfo"
         ? props.data
         : props.data.text
         ? props.data.text
@@ -58,13 +59,7 @@ const Input = (props) => {
         type={props.inputType}
         id="outlined-basic"
         value={val}
-        label={
-          props.data.text
-            ? props.inputType === "date"
-              ? ""
-              : props.data.text
-            : props.data
-        }
+        label={props.data.text ? props.data.text : props.data}
         variant="outlined"
       />
     </Box>

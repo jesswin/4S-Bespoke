@@ -11,10 +11,11 @@ const OrderContextProvider = (props) => {
   let custInfo = {};
   let prodInfo = {};
   let sizeInfo = {};
+  let finishedInfo = {};
   let fullData2 = {};
 
   const storeCustData = () => {
-    fullData2 = { custInfo, prodInfo, sizeInfo };
+    fullData2 = { custInfo, prodInfo, sizeInfo, finishedInfo };
     setFullData(fullData2);
     return fullData2;
   };
@@ -32,6 +33,10 @@ const OrderContextProvider = (props) => {
     if (dataAbout === "sizeInfo") {
       sizeInfo[field] = value;
       console.log(sizeInfo);
+    }
+    if (dataAbout === "finishedInfo") {
+      finishedInfo[field] = value;
+      console.log(finishedInfo);
     }
   };
 

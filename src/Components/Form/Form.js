@@ -6,6 +6,7 @@ import CustomerMeasurement from "./Measurements/CustomerMeasurement";
 import CustomerInformation from "./Information/CustomerInformation";
 import ProductsBought from "./Products/ProductsBought";
 import CircularProgress from "@mui/material/CircularProgress";
+import FinishedData from "./FinishedData/FinishedData";
 
 const Form = (props) => {
   const [changeForm, setchangeForm] = useState(false);
@@ -21,6 +22,8 @@ const Form = (props) => {
   let custData = props.data && Object.values(props.data)[0]?.custInfo;
   let prodData = props.data && Object.values(props.data)[0]?.prodInfo;
   let custSize = props.data && Object.values(props.data)[0]?.sizeInfo;
+  let custFinishedSize =
+    props.data && Object.values(props.data)[0]?.finishedInfo;
 
   console.log("FORMMM DATA");
   console.log(custData);
@@ -68,14 +71,20 @@ const Form = (props) => {
         changeForm && <ProductsBought onNext={unlockForm2} />
       )}
       {props.from === "Fetch" ? (
-        <CustomerMeasurement
-          data={custSize}
-          from="Fetch"
-          clearLocal={props.clearLocal}
-        />
+        <>
+          <CustomerMeasurement about="sizeInfo" data={custSize} />
+          <FinishedData
+            data={custFinishedSize}
+            from="Fetch"
+            clearLocal={props.clearLocal}
+          />
+        </>
       ) : (
         changeForm2 && (
-          <CustomerMeasurement lockForm={lockForm} lockForm2={lockForm2} />
+          <>
+            <CustomerMeasurement about="sizeInfo" />
+            <FinishedData lockForm={lockForm} lockForm2={lockForm2} />
+          </>
         )
       )}
     </Box>
