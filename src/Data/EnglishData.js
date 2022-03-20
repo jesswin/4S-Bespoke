@@ -55,6 +55,10 @@ export const PRODUCTS = [
     type: "dropdown",
   },
   {
+    text: "3 Piece Suits",
+    type: "dropdown",
+  },
+  {
     text: "Jacket",
     type: "dropdown",
   },

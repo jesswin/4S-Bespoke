@@ -13,7 +13,7 @@ const ProductsBought = (props) => {
         <Grid container spacing={1}>
           {PRODUCTS.map((element) =>
             element.type === "input" ? (
-              <Grid key={element.text} item xs={3}>
+              <Grid key={element.text} item xs={3}> 
                 {props.data ? (
                   <Input
                     required={element.required}
