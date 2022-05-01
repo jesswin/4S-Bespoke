@@ -6,7 +6,6 @@ import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import Form from "../Form/Form";
 import FetchData from "../Form/Fetch/FetchData";
-import CustomerStyle from "../Form/Details/CustomerStyle";
 
 const OrderTabs = () => {
   const [value, setValue] = React.useState("1");
