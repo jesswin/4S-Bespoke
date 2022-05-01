@@ -1,8 +1,8 @@
 import CustomerMeasurement from "../Measurements/CustomerMeasurement";
 import { Button } from "@mui/material";
-import { useContext } from "react";
-import OrderContext from "../../../Store/Orders-Context";
-import { storage } from "../../../firebase/firebase";
+// import { useContext } from "react";
+// import OrderContext from "../../../Store/Orders-Context";
+// import { storage } from "../../../firebase/firebase";
 import { useNavigate } from "react-router-dom";
 
 const FinishedData = (props) => {
