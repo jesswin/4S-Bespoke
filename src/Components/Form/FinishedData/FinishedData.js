@@ -3,10 +3,10 @@ import { Button } from "@mui/material";
 // import { useContext } from "react";
 // import OrderContext from "../../../Store/Orders-Context";
 // import { storage } from "../../../firebase/firebase";
-import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const FinishedData = (props) => {
-  const navigate = useNavigate();
+  const history = useHistory();
 
   // let orderCtx = useContext(OrderContext);
   // const submit = async (event) => {
@@ -57,7 +57,7 @@ const FinishedData = (props) => {
   // };
 
   const showCustStyle = () => {
-    navigate("/customer-styling");
+    history.push("/customer-styling");
   };
   return (
     <>

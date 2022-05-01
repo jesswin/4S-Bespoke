@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Box } from "@mui/system";
 import { useContext, useEffect, useState } from "react";
+import { Prompt } from "react-router-dom";
 import OrdersContext from "../../../Store/Orders-Context";
 import CustomSelect from "../CustomSelect/CustomSelect";
 import { OPTIONS } from "../../../Data/EnglishData";
@@ -180,31 +181,41 @@ const CustomerStyle = (props) => {
     setData(userData);
   }, []);
 
+  // window.onpopstate = (e) => {
+  //   let x =   window.confirm ("Information will be lost");
+  // };
+
   return (
-    <Box
-      sx={{
-        m: 2,
-        flexGrow: 1,
-      }}
-      noValidate
-      autoComplete="off"
-    >
-      {getData()}
-      {mainObj && getShirts()}
-      <div style={{ margin: "50px" }}></div>
-      {mainObj && getJacket()}
-      <div style={{ margin: "50px" }}></div>
-      {mainObj && getSlacks()}
-      <div style={{ margin: "50px" }}></div>
-      {mainObj && getTopCoat()}
-      <div style={{ margin: "50px" }}></div>
-      {mainObj && getVest()}
-      <div style={{ margin: "50px" }}></div>
-      {mainObj && getSuit()}
-      <div style={{ margin: "50px" }}></div>
-      {mainObj && get3Suit()}
-      <div style={{ margin: "50px" }}></div>
-    </Box>
+    <>
+      <Prompt
+        when={data}
+        message={() => "You may lose the data entered in below fields"}
+      />
+      <Box
+        sx={{
+          m: 2,
+          flexGrow: 1,
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        {getData()}
+        {mainObj && getShirts()}
+        <div style={{ margin: "50px" }}></div>
+        {mainObj && getJacket()}
+        <div style={{ margin: "50px" }}></div>
+        {mainObj && getSlacks()}
+        <div style={{ margin: "50px" }}></div>
+        {mainObj && getTopCoat()}
+        <div style={{ margin: "50px" }}></div>
+        {mainObj && getVest()}
+        <div style={{ margin: "50px" }}></div>
+        {mainObj && getSuit()}
+        <div style={{ margin: "50px" }}></div>
+        {mainObj && get3Suit()}
+        <div style={{ margin: "50px" }}></div>
+      </Box>
+    </>
   );
 };
 
