@@ -9,6 +9,7 @@ const Input = (props) => {
 
   useEffect(() => {
     console.log(props.dataAbout);
+    console.log(props.ind);
     if (props.value) {
       orderCtx.liftState(
         props.dataAbout === "sizeInfo" || props.dataAbout === "finishedInfo"
@@ -17,7 +18,8 @@ const Input = (props) => {
           ? props.data.text
           : props.text,
         props.value,
-        props.dataAbout
+        props.dataAbout,
+        props.ind
       );
       setVal(props.value);
     }
@@ -28,6 +30,7 @@ const Input = (props) => {
     props.data.text,
     props.text,
     props.dataAbout,
+    props.ind
   ]);
 
   // console.log(props.value);
@@ -43,7 +46,8 @@ const Input = (props) => {
         ? props.data.text
         : props.text,
       event.target.value,
-      props.dataAbout
+      props.dataAbout,
+      props.ind
     );
   };
   return (

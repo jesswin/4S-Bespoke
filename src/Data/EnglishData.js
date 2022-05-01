@@ -27,7 +27,7 @@ export const CUSTOMER_DATA = [
     text: "E-mail",
     type: "input",
     inputType: "email",
-    required: true,
+    // required: true,
   },
   {
     text: "Height",
@@ -45,7 +45,7 @@ export const CUSTOMER_DATA = [
     text: "DoB",
     type: "input",
     inputType: "date",
-    required: true,
+    // required: true,
   },
 ];
 
@@ -82,13 +82,13 @@ export const PRODUCTS = [
     text: "Date of Order",
     type: "input",
     inputType: "date",
-    required: true,
+    // required: true,
   },
   {
     text: "Order",
     type: "input",
     inputType: "text",
-    required: true,
+    // required: true,
   },
 ];
 
@@ -161,12 +161,12 @@ export const OPTIONS = [
 export const SHIRT_STYLE = [
   {
     text: "Quantity",
-    type: "input",
+    type: "dropdown",
     inputType: "text",
     required: true,
   },
   {
-    text: "Fabric#",
+    text: "Shirt Fabric#",
     type: "input",
     inputType: "text",
     required: true,
@@ -293,6 +293,440 @@ export const SHIRT_STYLE = [
   },
   {
     text: "Contrast Fabric",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Additional Style",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Notes",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+];
+
+export const JACKET_STYLE = [
+  {
+    text: "Quantity",
+    type: "dropdown",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Jacket Fabric#",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Lining",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Piping around Lining",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Buttons",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Thread Color on Buttons",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Canvas",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Jacket Style",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Lapel Style",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Lapel Size",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Lapel RBH/Satin",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Lapel RBH Color",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Chest Pocket",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Lower Pocket",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Ticket Pocket",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Sleeves Style",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Sleeve Button Hole",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Contrast Color",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Contrast Location",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Vent Style",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Stitching",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Stitch Color",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Jacket Bottom Style",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Additional Style",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Notes",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+];
+
+export const VEST_STYLE = [
+  {
+    text: "Quantity",
+    type: "dropdown",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Vest Fabric#",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Buttons",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Lapel",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Lapel Size",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Lapel RBH/Satin",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Chest Pocket",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Lower Pocket",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Back Style",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Stitching",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Additional Style",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Notes",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+];
+
+export const SLACK_STYLE = [
+  {
+    text: "Quantity",
+    type: "dropdown",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Slack Fabric#",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Buttons",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Front Style",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "WaistBand",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Front Pockets",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Back Pockets",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Bottom Style",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Lining",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Belt Loops",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Suspender Buttons",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Additional Style",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Notes",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+];
+
+export const TOP_COAT_STYLE = [
+  {
+    text: "Quantity",
+    type: "dropdown",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Jacket Fabric#",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Lining",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Piping around Lining",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Top Coat Style",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+
+  {
+    text: "Lapel Style",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Lapel Size",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Lapel RBH/Satin",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Lapel RBH Color",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Chest Pocket",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Lower Pocket",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Ticket Pocket",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Sleeves Style",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Sleeve Button Hole",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Button Hole Contrast",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+
+  {
+    text: "Vent Style",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Stitching",
+    type: "input",
+    inputType: "text",
+    required: true,
+  },
+  {
+    text: "Top Coat Bottom Style",
     type: "input",
     inputType: "text",
     required: true,

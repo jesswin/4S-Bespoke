@@ -3,6 +3,7 @@ import OrderTabs from "./Components/Tab/Tab";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import TailorCopy from "./Components/Form/TailorCopy";
+import CustomerStyle from "./Components/Form/Details/CustomerStyle";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         }
       ></Route>
       <Route path="/tailor-copy" element={<TailorCopy />}></Route>
+      <Route path="/customer-styling" element={<CustomerStyle />}></Route>
     </Routes>
   );
 }

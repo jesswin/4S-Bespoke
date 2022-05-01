@@ -18,7 +18,8 @@ const CustomSelect = (props) => {
           ? props.data.text
           : props.text,
         props.value,
-        props.dataAbout
+        props.dataAbout,
+        props.ind
       );
       setVal(props.value);
     }
@@ -29,18 +30,27 @@ const CustomSelect = (props) => {
     props.data.text,
     props.text,
     props.dataAbout,
+    props.ind,
   ]);
 
   const handleOnChange = (event) => {
-    console.log(event);
-    setVal(event.target.value);
+    if (props.from === "style") {
+      console.log(event.target.value);
+      console.log(props);
+      setVal(event.target.value);
+      props.onChange(props.field, event.target.value);
+    } else {
+      console.log(event);
+      setVal(event.target.value);
 
-    orderCtx.liftState(
-      props.data.text ? props.data.text : props.text,
-      `${event.target.value}`,
-      props.dataAbout
-    );
-    console.log(val);
+      orderCtx.liftState(
+        props.data.text ? props.data.text : props.text,
+        `${event.target.value}`,
+        props.dataAbout,
+        props.ind
+      );
+      console.log(val);
+    }
   };
 
   return (
