@@ -42,7 +42,7 @@ const OrderContextProvider = (props) => {
       prodInfo: { ...prodInfo },
       sizeInfo: { ...sizeInfo },
       finishedInfo: { ...finishedInfo },
-      threePcSuitInfo: { ...threePcSuitInfo },
+      threePcSuitInfo: [ ...threePcSuitArray ],
       jacketsInfo: [...jacketArray],
       shirtInfo: [...shirtArray],
       slackInfo: [...slackArray],

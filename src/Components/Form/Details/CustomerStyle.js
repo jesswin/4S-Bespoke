@@ -12,12 +12,75 @@ import TopCoat from "./TopCoat";
 import Vest from "./Vest";
 import Suits from "./Suits";
 import Suits3 from "./3PSuits";
+import { Button } from "@mui/material";
+import { storage } from "../../../firebase/firebase";
+import CircularProgress from "@mui/material/CircularProgress";
+import { useHistory } from "react-router-dom";
 
 const CustomerStyle = (props) => {
   const [data, setData] = useState();
   const [mainObj, setMainObj] = useState({});
+  const [goBack, setGoBack] = useState(false);
 
   const orderCtx = useContext(OrdersContext);
+
+  const history = useHistory();
+
+  // let orderCtx = useContext(OrderContext);
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    let data = orderCtx.getCustInfo();
+    let imgUrls = [];
+    let filteredData = {};
+    for (let key in data) {
+      if (data[key]) {
+        filteredData[key] = data[key];
+      }
+    }
+    console.log(filteredData);
+
+    try {
+      orderCtx.start();
+      if (data.custInfo.images) {
+        for (let i = 0; i < data.custInfo.images.length; i++) {
+          const ref = storage.ref(
+            `/${data.custInfo.Order}/${data.custInfo.images[i].name}${Date()}`
+          );
+          await ref.put(data.custInfo.images[i]).then(async () => {
+            const url = await ref.getDownloadURL();
+            console.log(url);
+            imgUrls.push(url);
+          });
+        }
+
+        data.custInfo.images = [...imgUrls];
+      }
+
+      let res = await fetch(
+        `https://sbespoke-48c4a-default-rtdb.firebaseio.com/orders/${data.prodInfo.Order}.json`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(filteredData),
+        }
+      );
+      if (!res.ok) {
+        throw new Error("Something went wrong!");
+      }
+      orderCtx.clear();
+      props.from === "Fetch" && props.clearLocal();
+      orderCtx.stop();
+      setGoBack(true);
+      history.replace("/");
+    } catch (err) {
+      console.log(err);
+      alert(err.message);
+      orderCtx.stop();
+    }
+  };
+
   let obj = {};
   const onChangeHandler = (field, value) => {
     console.log(value);
@@ -40,12 +103,10 @@ const CustomerStyle = (props) => {
       }
     }
     console.log(shirts);
-    // setShirtState(shirts);
     return shirts;
   };
 
   const getJacket = () => {
-    console.log("FUCK JHACKKKKKK");
     let jacket = [];
     for (let key in mainObj) {
       console.log(data?.prodInfo);
@@ -181,14 +242,12 @@ const CustomerStyle = (props) => {
     setData(userData);
   }, []);
 
-  // window.onpopstate = (e) => {
-  //   let x =   window.confirm ("Information will be lost");
-  // };
-
-  return (
+  return orderCtx.loading ? (
+    <CircularProgress />
+  ) : (
     <>
       <Prompt
-        when={data}
+        when={data && !goBack}
         message={() => "You may lose the data entered in below fields"}
       />
       <Box
@@ -200,6 +259,7 @@ const CustomerStyle = (props) => {
         autoComplete="off"
       >
         {getData()}
+
         {mainObj && getShirts()}
         <div style={{ margin: "50px" }}></div>
         {mainObj && getJacket()}
@@ -214,6 +274,16 @@ const CustomerStyle = (props) => {
         <div style={{ margin: "50px" }}></div>
         {mainObj && get3Suit()}
         <div style={{ margin: "50px" }}></div>
+        {mainObj && (
+          <Button
+            onClick={onSubmit}
+            variant="contained"
+            type="submit"
+            sx={{ m: 2 }}
+          >
+            Submit
+          </Button>
+        )}
       </Box>
     </>
   );

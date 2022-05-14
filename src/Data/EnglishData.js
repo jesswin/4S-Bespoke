@@ -166,7 +166,7 @@ export const SHIRT_STYLE = [
     required: true,
   },
   {
-    text: "Shirt Fabric#",
+    text: "Shirt Fabric",
     type: "input",
     inputType: "text",
     required: true,
@@ -319,7 +319,7 @@ export const JACKET_STYLE = [
     required: true,
   },
   {
-    text: "Jacket Fabric#",
+    text: "Jacket Fabric",
     type: "input",
     inputType: "text",
     required: true,
@@ -472,7 +472,7 @@ export const VEST_STYLE = [
     required: true,
   },
   {
-    text: "Vest Fabric#",
+    text: "Vest Fabric",
     type: "input",
     inputType: "text",
     required: true,
@@ -547,7 +547,7 @@ export const SLACK_STYLE = [
     required: true,
   },
   {
-    text: "Slack Fabric#",
+    text: "Slack Fabric",
     type: "input",
     inputType: "text",
     required: true,
@@ -628,7 +628,7 @@ export const TOP_COAT_STYLE = [
     required: true,
   },
   {
-    text: "Jacket Fabric#",
+    text: "Jacket Fabric",
     type: "input",
     inputType: "text",
     required: true,
