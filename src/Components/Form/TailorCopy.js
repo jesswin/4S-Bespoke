@@ -5,8 +5,13 @@ import { Box } from "@mui/material";
 import { Button } from "@mui/material";
 
 const TailorCopy = () => {
-  const orderCtx = useContext(OrderContext);
-  let data = Object.values(orderCtx.data);
+  // const orderCtx = useContext(OrderContext);
+  // let data = Object.values(orderCtx.data);
+  // console.log(data);
+
+  let data = localStorage.getItem("userData");
+  data = JSON.parse(data);
+  data = Object.values(data);
 
   let custData = data && Object.values(data)[0]?.custInfo;
   let prodData = data && Object.values(data)[0]?.prodInfo;

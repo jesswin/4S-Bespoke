@@ -28,6 +28,7 @@ const FetchData = (props) => {
     setLoading(true);
     let fetchedData = await orderCtx.getOrderData(inputRef.current.value);
     if (fetchedData) {
+      localStorage.setItem("userData", JSON.stringify(fetchedData));
       setData(fetchedData);
       setShowFinishData(true);
       setShowForm(true);
