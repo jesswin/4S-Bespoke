@@ -68,11 +68,11 @@ const FetchData = (props) => {
                   Fetch
                 </Button>
                 {showFinshData && (
-                  <Link to="/tailor-copy">
+                  <a href="/tailor-copy" target="_blank">
                     <Button disabled={!data} variant="contained" sx={{ m: 2 }}>
                       Tailor Copy
                     </Button>
-                  </Link>
+                  </a>
                 )}
               </Grid>
             </Box>
