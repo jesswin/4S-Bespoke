@@ -1,5 +1,3 @@
-import { color } from "@mui/system";
-
 const Modal = (props) => {
   const showData = () => {
     let orders = [];

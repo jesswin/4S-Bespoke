@@ -1,7 +1,7 @@
 import Grid from "@mui/material/Grid";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import CircularProgress from "@mui/material/CircularProgress";
-import { Box, positions } from "@mui/system";
+import { Box } from "@mui/system";
 import TextField from "@mui/material/TextField";
 import Modal from "../Modal/Modal";
 
@@ -37,6 +37,7 @@ const AllData = () => {
       }
     }
     getData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const showModalData = (obj) => {
