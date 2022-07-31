@@ -9,7 +9,7 @@ const Shirt = (props) => {
   for (let i = 1; i <= props.shirts; i++) {
     arr.push(i);
   }
-  console.log(props.shirts);
+  console.log(SHIRT_STYLE);
   return (
     <form>
       <fieldset>
@@ -39,7 +39,8 @@ const Shirt = (props) => {
               </Grid>
             ) : (
               <Grid key={element.text} item xs={2}>
-                {props.data ? (
+
+                {props.data ? element.text=="Quantity"?(
                   <CustomSelect
                     options={arr}
                     dataAbout="shirtInfo"
@@ -47,11 +48,27 @@ const Shirt = (props) => {
                     ind={props.ind}
                     value={props.data[element.text]}
                   />
-                ) : (
+                ):(
                   <CustomSelect
-                    options={arr}
+                    options={element.options}
                     dataAbout="shirtInfo"
                     data={element}
+                    ind={props.ind}
+                    widthBig={true} 
+                    value={props.data[element.text]}
+                  />
+                )
+                 :element.text=="Quantity"?<CustomSelect
+                options={arr}
+                dataAbout="shirtInfo"
+                data={element}
+                ind={props.ind}
+              />:(
+                  <CustomSelect
+                    options={element.options}
+                    dataAbout="shirtInfo"
+                    data={element}
+                    widthBig={true} 
                     ind={props.ind}
                   />
                 )}

@@ -96,7 +96,6 @@ const CustomerStyle = (props) => {
     for (let key in mainObj) {
       console.log(mainObj);
       if (key === "Shirts") {
-        console.log("JESSI");
         for (let i = 0; i < mainObj[key]; i++) {
           shirts.push(<Shirt ind={i} shirts={data?.prodInfo.Shirts} />);
         }

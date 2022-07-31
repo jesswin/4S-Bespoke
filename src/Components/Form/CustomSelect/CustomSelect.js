@@ -65,7 +65,7 @@ const CustomSelect = (props) => {
       <Select
         id="prod-select"
         sx={{
-          width: "5rem",
+          width: props.widthBig && "200px",
         }}
         value={val}
         label={props.data.text ? props.data.text : props.data}
